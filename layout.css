@@ -1,0 +1,96 @@
+:root {
+  --bg: #8ccf44;
+  --white: #ffffff;
+  --dark: #0f172a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  font-family: Inter, Arial, sans-serif;
+  color: var(--dark);
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+/* HEADER */
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border:3px solid white;
+  padding:18px 24px;
+  border-radius:14px;
+}
+
+.game-title {
+  font-size:32px;
+  font-weight:800;
+  color:white;
+  line-height:1.05;
+  letter-spacing:1px;
+}
+
+.scores-box { display:flex; gap:20px; }
+
+.score-tile {
+  background: white;
+  width:130px;
+  height:90px;
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.score-label { font-size:12px; font-weight:700; opacity:0.7; }
+.score-number { font-size:36px; font-weight:800; margin-top:4px; }
+
+/* PLAY AREA */
+.play-area { position:relative; height:480px; margin-top:50px; }
+
+/* CONNECTORS SVG centered */
+.connectors {
+  position:absolute;
+  width:420px;
+  left:50%;
+  transform:translateX(-50%);
+  top:0;
+}
+
+/* CHOICE POSITIONS */
+.choice-node { position:absolute; transform:translate(-50%,-50%); cursor:pointer; }
+.choice-scissors { left:50%; top:85px; }
+.choice-rock     { left:calc(50% - 160px); top:285px; }
+.choice-paper    { left:calc(50% + 160px); top:285px; }
+
+/* CONTROLS BOX on right-bottom */
+.controls-box {
+  position:absolute;
+  right:20px;
+  bottom:40px;
+  display:flex;
+  gap:14px;
+}
+
+/* RESULT PANEL */
+.result-panel { display:flex; justify-content:space-around; align-items:center; margin-top:60px; }
+.result-left, .result-right { display:flex; flex-direction:column; align-items:center; }
+.result-center { text-align:center; }
+
+.round-text { color:white; font-size:32px; font-weight:800; margin-bottom:12px; }
+
+/* HURRAY overlay */
+.hurray-overlay { position:fixed; inset:0; background:var(--bg); display:flex; align-items:center; justify-content:center; z-index:999; }
+.hurray-card { text-align:center; }
+.trophy { font-size:130px; }
+.subtitle-h { font-size:20px; color:white; font-weight:600; margin-bottom:20px; }
+
+/* result-node wrapper important for ring centering */
+.result-node-wrapper { width:180px; height:180px; display:flex; justify-content:center; align-items:center; position:relative; }

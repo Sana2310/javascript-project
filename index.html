@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rock Paper Scissors — Final</title>
+
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+
+<body>
+  <main class="app">
+
+    <!-- HEADER -->
+    <header class="topbar">
+      <div class="title-box">
+        <div class="game-title">ROCK<br>PAPER<br>SCISSORS</div>
+      </div>
+
+      <div class="scores-box">
+        <div class="score-tile">
+          <div class="score-label">COMPUTER<br>SCORE</div>
+          <div id="computerScore" class="score-number">0</div>
+        </div>
+
+        <div class="score-tile">
+          <div class="score-label">YOUR<br>SCORE</div>
+          <div id="playerScore" class="score-number">0</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- TRIANGLE PLAY AREA -->
+    <section class="play-area">
+
+      <!-- Triangle connectors (SVG) -->
+      <svg class="connectors" viewBox="0 0 400 350" aria-hidden="true">
+        <line x1="200" y1="60" x2="100" y2="260" stroke="#2f4233" stroke-width="12" stroke-linecap="round" />
+        <line x1="200" y1="60" x2="300" y2="260" stroke="#2f4233" stroke-width="12" stroke-linecap="round" />
+        <line x1="100" y1="260" x2="300" y2="260" stroke="#2f4233" stroke-width="12" stroke-linecap="round" />
+      </svg>
+
+      <!-- Controls (moved to right-bottom) -->
+      <div class="controls-box">
+        <button id="rulesBtn" class="btn small">RULES</button>
+        <button id="nextBtnTop" class="btn small">NEXT</button>
+      </div>
+
+      <!-- Choice nodes (triangle) -->
+      <div class="choice-node choice-scissors" data-choice="scissors" title="Scissors">
+        <div class="outer-ring purple"><div class="inner-white"><span class="icon">✌️</span></div></div>
+      </div>
+
+      <div class="choice-node choice-rock" data-choice="rock" title="Rock">
+        <div class="outer-ring blue"><div class="inner-white"><span class="icon">✊</span></div></div>
+      </div>
+
+      <div class="choice-node choice-paper" data-choice="paper" title="Paper">
+        <div class="outer-ring orange"><div class="inner-white"><span class="icon">✋</span></div></div>
+      </div>
+
+    </section>
+
+    <!-- RULES PANEL -->
+    <aside id="rulesPanel" class="rules-panel" style="display:none;">
+      <button id="closeRules" class="rules-close" aria-label="Close rules">✕</button>
+      <h3>Game Rules</h3>
+      <ul>
+        <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+        <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+        <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time.</li>
+        <li>If both players lay down the same hand, each player lays down another hand.</li>
+      </ul>
+    </aside>
+
+    <!-- RESULT PANEL (hidden until a round is played) -->
+    <section id="resultPanel" class="result-panel" style="display:none;">
+      <div class="result-left">
+        <div class="you-picked">YOU PICKED</div>
+
+        <div id="youPickedNode" class="result-node-wrapper">
+          <!-- concentric rings inside same wrapper for perfect centering -->
+          <div id="youConcentric" class="concentric" aria-hidden="true">
+            <div class="ring r1"></div>
+            <div class="ring r2"></div>
+            <div class="ring r3"></div>
+          </div>
+
+          <div id="youPickedNodeInner" class="result-node"></div>
+        </div>
+      </div>
+
+      <div class="result-center">
+        <div id="roundResult" class="round-text"></div>
+
+        <button id="playAgainBtn" class="btn play-again">PLAY AGAIN</button>
+
+        <!-- NEXT inside result screen to open HURRAY -->
+        <button id="resultNextBtn" class="btn small result-next">NEXT</button>
+      </div>
+
+      <div class="result-right">
+        <div class="you-picked">PC PICKED</div>
+        <div id="pcPickedNode" class="result-node-wrapper"></div>
+      </div>
+    </section>
+
+    <!-- HURRAY overlay -->
+    <div id="hurrayOverlay" class="hurray-overlay" style="display:none;">
+      <div class="hurray-card">
+        <div class="trophy">🏆</div>
+        <h1>HURRAY!!</h1>
+        <p class="subtitle-h">YOU WON THE GAME</p>
+        <button id="hurrayPlayAgain" class="btn play-again">PLAY AGAIN</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
